@@ -1,0 +1,91 @@
+{
+  "name": "Licencia",
+  "fields": [
+    {
+      "fieldName": "fechaExpedicion",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "vigencia",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "serial",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipName": "persona"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "licenciaTransito",
+      "relationshipName": "vehiculo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "licenciaTransito",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "licenciaConduccion",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "restriccion",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipValidateRules": "required",
+      "relationshipName": "restriccion",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoLicencia",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipName": "tipoLicencia",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "categoria",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipName": "categoria",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "servicio",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipName": "servicio",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "organismoTransito",
+      "otherEntityRelationshipName": "licencia",
+      "relationshipName": "organismoTransito",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718220325",
+  "entityTableName": "licencia",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

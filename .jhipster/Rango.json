@@ -1,0 +1,32 @@
+{
+  "name": "Rango",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acronimo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "agente",
+      "otherEntityRelationshipName": "rango",
+      "relationshipName": "agente"
+    }
+  ],
+  "changelogDate": "20200718221025",
+  "entityTableName": "rango",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

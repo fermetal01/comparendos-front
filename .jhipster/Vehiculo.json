@@ -1,0 +1,152 @@
+{
+  "name": "Vehiculo",
+  "fields": [
+    {
+      "fieldName": "placa",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "linea",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cilindraje",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "capacidad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numeroMotor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "chasis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "potencia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaMatricula",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "grua",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "grua"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "restriccion",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipValidateRules": "required",
+      "relationshipName": "restriccion",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "persona",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "entidad",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "entidad",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "marca",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "marca",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "servicio",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "servicio",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "claseVehiculo",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "clase",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "combustible",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "combustible",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "organismoTransito",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "organismoTransito",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "licenciaTransito",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "vehiculo",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718221125",
+  "entityTableName": "vehiculo",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

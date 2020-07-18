@@ -1,0 +1,120 @@
+{
+  "name": "Comparendo",
+  "fields": [
+    {
+      "fieldName": "fechaHora",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observaciones",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoInmovilizacion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "infraccion",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipValidateRules": "required",
+      "relationshipName": "infracciones",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "estadoComparendo",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "estado",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "vehiculo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "licenciaTransito",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "licenciaConduccion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "agente",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "agente",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ciudad",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "ciudad",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "infractor",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "testigo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "patio",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "patio",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "grua",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "grua",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "entidad",
+      "otherEntityRelationshipName": "comparendo",
+      "relationshipName": "entidad",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718221525",
+  "entityTableName": "comparendo",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

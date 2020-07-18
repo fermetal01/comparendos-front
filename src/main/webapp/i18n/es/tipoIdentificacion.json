@@ -1,0 +1,23 @@
+{
+  "comparendosApp": {
+    "tipoIdentificacion": {
+      "home": {
+        "title": "Tipo Identificacions",
+        "createLabel": "Crear nuevo Tipo Identificacion",
+        "createOrEditLabel": "Crear o editar Tipo Identificacion",
+        "notFound": "Ningún Tipo Identificacions encontrado"
+      },
+      "created": "Un nuevo Tipo Identificacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Identificacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Identificacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Identificacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Identificacion"
+      },
+      "nombre": "Nombre",
+      "persona": "Persona"
+    }
+  }
+}

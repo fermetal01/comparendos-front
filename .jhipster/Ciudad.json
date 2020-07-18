@@ -1,0 +1,47 @@
+{
+  "name": "Ciudad",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "ciudad",
+      "relationshipName": "persona"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "ciudad",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "entidad",
+      "otherEntityRelationshipName": "ciudad",
+      "relationshipName": "entidad"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departamento",
+      "otherEntityRelationshipName": "ciudad",
+      "relationshipName": "departamento",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718215725",
+  "entityTableName": "ciudad",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

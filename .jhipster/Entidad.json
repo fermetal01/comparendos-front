@@ -1,0 +1,60 @@
+{
+  "name": "Entidad",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "celular",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "entidad",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ciudad",
+      "otherEntityRelationshipName": "entidad",
+      "relationshipName": "ciudad",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "entidad",
+      "relationshipValidateRules": "required",
+      "relationshipName": "vehiculo",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200718222025",
+  "entityTableName": "entidad",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

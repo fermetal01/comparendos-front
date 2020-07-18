@@ -1,0 +1,28 @@
+{
+  "name": "Combustible",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "combustible",
+      "relationshipName": "vehiculo"
+    }
+  ],
+  "changelogDate": "20200718221425",
+  "entityTableName": "combustible",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

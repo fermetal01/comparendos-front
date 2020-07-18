@@ -1,0 +1,28 @@
+{
+  "name": "EstadoComparendo",
+  "fields": [
+    {
+      "fieldName": "tipo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "estado",
+      "relationshipName": "comparendo"
+    }
+  ],
+  "changelogDate": "20200718221625",
+  "entityTableName": "estado_comparendo",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,37 @@
+{
+  "comparendosApp": {
+    "comparendo": {
+      "home": {
+        "title": "Comparendos",
+        "createLabel": "Crear nuevo Comparendo",
+        "createOrEditLabel": "Crear o editar Comparendo",
+        "notFound": "Ningún Comparendos encontrado"
+      },
+      "created": "Un nuevo Comparendo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Comparendo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Comparendo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Comparendo {{ id }}?"
+      },
+      "detail": {
+        "title": "Comparendo"
+      },
+      "fechaHora": "Fecha Hora",
+      "direccion": "Direccion",
+      "observaciones": "Observaciones",
+      "codigoInmovilizacion": "Codigo Inmovilizacion",
+      "infracciones": "Infracciones",
+      "estado": "Estado",
+      "vehiculo": "Vehiculo",
+      "licenciaTransito": "Licencia Transito",
+      "licenciaConduccion": "Licencia Conduccion",
+      "agente": "Agente",
+      "ciudad": "Ciudad",
+      "infractor": "Infractor",
+      "testigo": "Testigo",
+      "patio": "Patio",
+      "grua": "Grua",
+      "entidad": "Entidad"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "comparendosApp": {
+    "licencia": {
+      "home": {
+        "title": "Licencias",
+        "createLabel": "Crear nuevo Licencia",
+        "createOrEditLabel": "Crear o editar Licencia",
+        "notFound": "Ningún Licencias encontrado"
+      },
+      "created": "Un nuevo Licencia ha sido creado con el identificador {{ param }}",
+      "updated": "Un Licencia ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Licencia ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Licencia {{ id }}?"
+      },
+      "detail": {
+        "title": "Licencia"
+      },
+      "fechaExpedicion": "Fecha Expedicion",
+      "vigencia": "Vigencia",
+      "serial": "Serial",
+      "persona": "Persona",
+      "vehiculo": "Vehiculo",
+      "comparendo": "Comparendo",
+      "comparendo": "Comparendo",
+      "restriccion": "Restriccion",
+      "tipoLicencia": "Tipo Licencia",
+      "categoria": "Categoria",
+      "servicio": "Servicio",
+      "organismoTransito": "Organismo Transito"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "comparendosApp": {
+    "infraccion": {
+      "home": {
+        "title": "Infraccions",
+        "createLabel": "Crear nuevo Infraccion",
+        "createOrEditLabel": "Crear o editar Infraccion",
+        "notFound": "Ningún Infraccions encontrado"
+      },
+      "created": "Un nuevo Infraccion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Infraccion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Infraccion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Infraccion {{ id }}?"
+      },
+      "detail": {
+        "title": "Infraccion"
+      },
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "comparendo": "Comparendo"
+    }
+  }
+}

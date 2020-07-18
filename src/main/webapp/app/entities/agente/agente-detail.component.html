@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="agente">
+            <h2><span jhiTranslate="comparendosApp.agente.detail.title">Agente</span> {{ agente.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="comparendosApp.agente.placa">Placa</span></dt>
+                <dd>
+                    <span>{{ agente.placa }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.agente.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="agente.personaId">
+                        <a [routerLink]="['/persona', agente.personaId, 'view']">{{ agente.personaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.agente.rango">Rango</span></dt>
+                <dd>
+                    <div *ngIf="agente.rangoId">
+                        <a [routerLink]="['/rango', agente.rangoId, 'view']">{{ agente.rangoId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/agente', agente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "comparendosApp": {
+    "marca": {
+      "home": {
+        "title": "Marcas",
+        "createLabel": "Crear nuevo Marca",
+        "createOrEditLabel": "Crear o editar Marca",
+        "notFound": "Ningún Marcas encontrado"
+      },
+      "created": "Un nuevo Marca ha sido creado con el identificador {{ param }}",
+      "updated": "Un Marca ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Marca ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Marca {{ id }}?"
+      },
+      "detail": {
+        "title": "Marca"
+      },
+      "nombre": "Nombre",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

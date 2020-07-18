@@ -1,0 +1,134 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vehiculo">
+            <h2><span jhiTranslate="comparendosApp.vehiculo.detail.title">Vehiculo</span> {{ vehiculo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="comparendosApp.vehiculo.placa">Placa</span></dt>
+                <dd>
+                    <span>{{ vehiculo.placa }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.linea">Linea</span></dt>
+                <dd>
+                    <span>{{ vehiculo.linea }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.modelo">Modelo</span></dt>
+                <dd>
+                    <span>{{ vehiculo.modelo }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.cilindraje">Cilindraje</span></dt>
+                <dd>
+                    <span>{{ vehiculo.cilindraje }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.color">Color</span></dt>
+                <dd>
+                    <span>{{ vehiculo.color }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.capacidad">Capacidad</span></dt>
+                <dd>
+                    <span>{{ vehiculo.capacidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.numeroMotor">Numero Motor</span></dt>
+                <dd>
+                    <span>{{ vehiculo.numeroMotor }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.vin">Vin</span></dt>
+                <dd>
+                    <span>{{ vehiculo.vin }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.serie">Serie</span></dt>
+                <dd>
+                    <span>{{ vehiculo.serie }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.chasis">Chasis</span></dt>
+                <dd>
+                    <span>{{ vehiculo.chasis }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.potencia">Potencia</span></dt>
+                <dd>
+                    <span>{{ vehiculo.potencia }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.fechaMatricula">Fecha Matricula</span></dt>
+                <dd>
+                    <span>{{ vehiculo.fechaMatricula }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.restriccion">Restriccion</span></dt>
+                <dd>
+                    <span *ngFor="let restriccion of vehiculo.restriccions; let last = last">
+                        <a [routerLink]="['/restriccion', restriccion?.id, 'view']">{{ restriccion.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.persona">Persona</span></dt>
+                <dd>
+                    <span *ngFor="let persona of vehiculo.personas; let last = last">
+                        <a [routerLink]="['/persona', persona?.id, 'view']">{{ persona.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.entidad">Entidad</span></dt>
+                <dd>
+                    <span *ngFor="let entidad of vehiculo.entidads; let last = last">
+                        <a [routerLink]="['/entidad', entidad?.id, 'view']">{{ entidad.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.marca">Marca</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.marcaId">
+                        <a [routerLink]="['/marca', vehiculo.marcaId, 'view']">{{ vehiculo.marcaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.servicio">Servicio</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.servicioId">
+                        <a [routerLink]="['/servicio', vehiculo.servicioId, 'view']">{{ vehiculo.servicioId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.clase">Clase</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.claseId">
+                        <a [routerLink]="['/clase-vehiculo', vehiculo.claseId, 'view']">{{ vehiculo.claseId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.combustible">Combustible</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.combustibleId">
+                        <a [routerLink]="['/combustible', vehiculo.combustibleId, 'view']">{{ vehiculo.combustibleId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.organismoTransito">Organismo Transito</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.organismoTransitoId">
+                        <a [routerLink]="['/organismo-transito', vehiculo.organismoTransitoId, 'view']">{{ vehiculo.organismoTransitoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.licenciaTransito">Licencia Transito</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.licenciaTransitoId">
+                        <a [routerLink]="['/licencia', vehiculo.licenciaTransitoId, 'view']">{{ vehiculo.licenciaTransitoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.vehiculo.persona">Persona</span></dt>
+                <dd>
+                    <div *ngIf="vehiculo.personaId">
+                        <a [routerLink]="['/persona', vehiculo.personaId, 'view']">{{ vehiculo.personaId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vehiculo', vehiculo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

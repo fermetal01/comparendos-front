@@ -1,0 +1,35 @@
+{
+  "name": "Grua",
+  "fields": [
+    {
+      "fieldName": "codigo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "grua",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "grua",
+      "relationshipName": "vehiculo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718221925",
+  "entityTableName": "grua",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

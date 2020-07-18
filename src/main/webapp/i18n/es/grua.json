@@ -1,0 +1,24 @@
+{
+  "comparendosApp": {
+    "grua": {
+      "home": {
+        "title": "Gruas",
+        "createLabel": "Crear nuevo Grua",
+        "createOrEditLabel": "Crear o editar Grua",
+        "notFound": "Ningún Gruas encontrado"
+      },
+      "created": "Un nuevo Grua ha sido creado con el identificador {{ param }}",
+      "updated": "Un Grua ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Grua ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Grua {{ id }}?"
+      },
+      "detail": {
+        "title": "Grua"
+      },
+      "codigo": "Codigo",
+      "comparendo": "Comparendo",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

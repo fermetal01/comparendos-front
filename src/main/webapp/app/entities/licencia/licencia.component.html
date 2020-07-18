@@ -1,0 +1,99 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="comparendosApp.licencia.home.title">Licencias</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-licencia" [routerLink]="['/licencia/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="comparendosApp.licencia.home.createLabel">
+            Create a new Licencia
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="licencias?.length === 0">
+        <span jhiTranslate="comparendosApp.licencia.home.notFound">No licencias found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="licencias && licencias.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fechaExpedicion"><span jhiTranslate="comparendosApp.licencia.fechaExpedicion">Fecha Expedicion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vigencia"><span jhiTranslate="comparendosApp.licencia.vigencia">Vigencia</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serial"><span jhiTranslate="comparendosApp.licencia.serial">Serial</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tipoLicenciaId"><span jhiTranslate="comparendosApp.licencia.tipoLicencia">Tipo Licencia</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoriaId"><span jhiTranslate="comparendosApp.licencia.categoria">Categoria</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="servicioId"><span jhiTranslate="comparendosApp.licencia.servicio">Servicio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="organismoTransitoId"><span jhiTranslate="comparendosApp.licencia.organismoTransito">Organismo Transito</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let licencia of licencias ;trackBy: trackId">
+                    <td><a [routerLink]="['/licencia', licencia.id, 'view']">{{ licencia.id }}</a></td>
+                    <td>{{ licencia.fechaExpedicion | date:'mediumDate' }}</td>
+                    <td>{{ licencia.vigencia | date:'mediumDate' }}</td>
+                    <td>{{ licencia.serial }}</td>
+                    <td>
+                        <div *ngIf="licencia.tipoLicenciaId">
+                            <a [routerLink]="['/tipo-licencia', licencia.tipoLicenciaId , 'view']" >{{ licencia.tipoLicenciaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="licencia.categoriaId">
+                            <a [routerLink]="['/categoria', licencia.categoriaId , 'view']" >{{ licencia.categoriaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="licencia.servicioId">
+                            <a [routerLink]="['/servicio', licencia.servicioId , 'view']" >{{ licencia.servicioId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="licencia.organismoTransitoId">
+                            <a [routerLink]="['/organismo-transito', licencia.organismoTransitoId , 'view']" >{{ licencia.organismoTransitoId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/licencia', licencia.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/licencia', licencia.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(licencia)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="licencias && licencias.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

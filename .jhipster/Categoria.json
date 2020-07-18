@@ -1,0 +1,28 @@
+{
+  "name": "Categoria",
+  "fields": [
+    {
+      "fieldName": "tipo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "categoria",
+      "relationshipName": "licencia"
+    }
+  ],
+  "changelogDate": "20200718220525",
+  "entityTableName": "categoria",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

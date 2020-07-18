@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vehiculo-heading" jhiTranslate="comparendosApp.vehiculo.home.createOrEditLabel">Create or edit a Vehiculo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.placa" for="field_placa">Placa</label>
+                    <input type="text" class="form-control" name="placa" id="field_placa"
+                           formControlName="placa"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.linea" for="field_linea">Linea</label>
+                    <input type="text" class="form-control" name="linea" id="field_linea"
+                           formControlName="linea"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.modelo" for="field_modelo">Modelo</label>
+                    <input type="number" class="form-control" name="modelo" id="field_modelo"
+                           formControlName="modelo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.cilindraje" for="field_cilindraje">Cilindraje</label>
+                    <input type="number" class="form-control" name="cilindraje" id="field_cilindraje"
+                           formControlName="cilindraje"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.color" for="field_color">Color</label>
+                    <input type="text" class="form-control" name="color" id="field_color"
+                           formControlName="color"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.capacidad" for="field_capacidad">Capacidad</label>
+                    <input type="number" class="form-control" name="capacidad" id="field_capacidad"
+                           formControlName="capacidad"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.numeroMotor" for="field_numeroMotor">Numero Motor</label>
+                    <input type="text" class="form-control" name="numeroMotor" id="field_numeroMotor"
+                           formControlName="numeroMotor"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.vin" for="field_vin">Vin</label>
+                    <input type="text" class="form-control" name="vin" id="field_vin"
+                           formControlName="vin"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.serie" for="field_serie">Serie</label>
+                    <input type="text" class="form-control" name="serie" id="field_serie"
+                           formControlName="serie"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.chasis" for="field_chasis">Chasis</label>
+                    <input type="text" class="form-control" name="chasis" id="field_chasis"
+                           formControlName="chasis"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.potencia" for="field_potencia">Potencia</label>
+                    <input type="text" class="form-control" name="potencia" id="field_potencia"
+                           formControlName="potencia"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.fechaMatricula" for="field_fechaMatricula">Fecha Matricula</label>
+                    <div class="input-group">
+                        <input id="field_fechaMatricula" type="text" class="form-control" name="fechaMatricula" ngbDatepicker #fechaMatriculaDp="ngbDatepicker" formControlName="fechaMatricula"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaMatriculaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="comparendosApp.vehiculo.restriccion" for="field_restriccions">Restriccion</label>
+                    <select class="form-control" id="field_restriccions" multiple name="restriccions" formControlName="restriccions">
+                        <option [ngValue]="getSelected(editForm.get('restriccions')!.value, restriccionOption)" *ngFor="let restriccionOption of restriccions; trackBy: trackById">{{ restriccionOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('restriccions')!.invalid && (editForm.get('restriccions')!.dirty || editForm.get('restriccions')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('restriccions')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="comparendosApp.vehiculo.persona" for="field_personas">Persona</label>
+                    <select class="form-control" id="field_personas" multiple name="personas" formControlName="personas">
+                        <option [ngValue]="getSelected(editForm.get('personas')!.value, personaOption)" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="comparendosApp.vehiculo.entidad" for="field_entidads">Entidad</label>
+                    <select class="form-control" id="field_entidads" multiple name="entidads" formControlName="entidads">
+                        <option [ngValue]="getSelected(editForm.get('entidads')!.value, entidadOption)" *ngFor="let entidadOption of entidads; trackBy: trackById">{{ entidadOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.marca" for="field_marca">Marca</label>
+                    <select class="form-control" id="field_marca" name="marca" formControlName="marcaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="marcaOption.id" *ngFor="let marcaOption of marcas; trackBy: trackById">{{ marcaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.servicio" for="field_servicio">Servicio</label>
+                    <select class="form-control" id="field_servicio" name="servicio" formControlName="servicioId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="servicioOption.id" *ngFor="let servicioOption of servicios; trackBy: trackById">{{ servicioOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.clase" for="field_clase">Clase</label>
+                    <select class="form-control" id="field_clase" name="clase" formControlName="claseId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="claseVehiculoOption.id" *ngFor="let claseVehiculoOption of clasevehiculos; trackBy: trackById">{{ claseVehiculoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.combustible" for="field_combustible">Combustible</label>
+                    <select class="form-control" id="field_combustible" name="combustible" formControlName="combustibleId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="combustibleOption.id" *ngFor="let combustibleOption of combustibles; trackBy: trackById">{{ combustibleOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.organismoTransito" for="field_organismoTransito">Organismo Transito</label>
+                    <select class="form-control" id="field_organismoTransito" name="organismoTransito" formControlName="organismoTransitoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="organismoTransitoOption.id" *ngFor="let organismoTransitoOption of organismotransitos; trackBy: trackById">{{ organismoTransitoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.licenciaTransito" for="field_licenciaTransito">Licencia Transito</label>
+                    <select class="form-control" id="field_licenciaTransito" name="licenciaTransito" formControlName="licenciaTransitoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.vehiculo.persona" for="field_persona">Persona</label>
+                    <select class="form-control" id="field_persona" name="persona" formControlName="personaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

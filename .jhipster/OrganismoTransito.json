@@ -1,0 +1,34 @@
+{
+  "name": "OrganismoTransito",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "organismoTransito",
+      "relationshipName": "licencia"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "organismoTransito",
+      "relationshipName": "vehiculo"
+    }
+  ],
+  "changelogDate": "20200718220825",
+  "entityTableName": "organismo_transito",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+  "comparendosApp": {
+    "organismoTransito": {
+      "home": {
+        "title": "Organismo Transitos",
+        "createLabel": "Crear nuevo Organismo Transito",
+        "createOrEditLabel": "Crear o editar Organismo Transito",
+        "notFound": "Ningún Organismo Transitos encontrado"
+      },
+      "created": "Un nuevo Organismo Transito ha sido creado con el identificador {{ param }}",
+      "updated": "Un Organismo Transito ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Organismo Transito ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Organismo Transito {{ id }}?"
+      },
+      "detail": {
+        "title": "Organismo Transito"
+      },
+      "nombre": "Nombre",
+      "licencia": "Licencia",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

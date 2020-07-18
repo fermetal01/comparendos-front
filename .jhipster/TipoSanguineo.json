@@ -1,0 +1,28 @@
+{
+  "name": "TipoSanguineo",
+  "fields": [
+    {
+      "fieldName": "tipo",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "tipoSanguineo",
+      "relationshipName": "persona"
+    }
+  ],
+  "changelogDate": "20200718220225",
+  "entityTableName": "tipo_sanguineo",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

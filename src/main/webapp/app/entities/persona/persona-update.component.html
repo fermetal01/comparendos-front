@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-persona-heading" jhiTranslate="comparendosApp.persona.home.createOrEditLabel">Create or edit a Persona</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.nombres" for="field_nombres">Nombres</label>
+                    <input type="text" class="form-control" name="nombres" id="field_nombres"
+                           formControlName="nombres"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.apellidos" for="field_apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" id="field_apellidos"
+                           formControlName="apellidos"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.numeroId" for="field_numeroId">Numero Id</label>
+                    <input type="text" class="form-control" name="numeroId" id="field_numeroId"
+                           formControlName="numeroId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.telefono" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.celular" for="field_celular">Celular</label>
+                    <input type="text" class="form-control" name="celular" id="field_celular"
+                           formControlName="celular"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.ciudad" for="field_ciudad">Ciudad</label>
+                    <select class="form-control" id="field_ciudad" name="ciudad" formControlName="ciudadId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.genero" for="field_genero">Genero</label>
+                    <select class="form-control" id="field_genero" name="genero" formControlName="generoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="generoOption.id" *ngFor="let generoOption of generos; trackBy: trackById">{{ generoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.tipoSanguineo" for="field_tipoSanguineo">Tipo Sanguineo</label>
+                    <select class="form-control" id="field_tipoSanguineo" name="tipoSanguineo" formControlName="tipoSanguineoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoSanguineoOption.id" *ngFor="let tipoSanguineoOption of tiposanguineos; trackBy: trackById">{{ tipoSanguineoOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.tipoId" for="field_tipoId">Tipo Id</label>
+                    <select class="form-control" id="field_tipoId" name="tipoId" formControlName="tipoIdId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoIdentificacionOption.id" *ngFor="let tipoIdentificacionOption of tipoidentificacions; trackBy: trackById">{{ tipoIdentificacionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.persona.licencia" for="field_licencia">Licencia</label>
+                    <select class="form-control" id="field_licencia" name="licencia" formControlName="licenciaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

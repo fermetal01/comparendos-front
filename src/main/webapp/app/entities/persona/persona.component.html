@@ -1,0 +1,115 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="comparendosApp.persona.home.title">Personas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-persona" [routerLink]="['/persona/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="comparendosApp.persona.home.createLabel">
+            Create a new Persona
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="personas?.length === 0">
+        <span jhiTranslate="comparendosApp.persona.home.notFound">No personas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="personas && personas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombres"><span jhiTranslate="comparendosApp.persona.nombres">Nombres</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="apellidos"><span jhiTranslate="comparendosApp.persona.apellidos">Apellidos</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fechaNacimiento"><span jhiTranslate="comparendosApp.persona.fechaNacimiento">Fecha Nacimiento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroId"><span jhiTranslate="comparendosApp.persona.numeroId">Numero Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="comparendosApp.persona.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="telefono"><span jhiTranslate="comparendosApp.persona.telefono">Telefono</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="celular"><span jhiTranslate="comparendosApp.persona.celular">Celular</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="comparendosApp.persona.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ciudadId"><span jhiTranslate="comparendosApp.persona.ciudad">Ciudad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="generoId"><span jhiTranslate="comparendosApp.persona.genero">Genero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tipoSanguineoId"><span jhiTranslate="comparendosApp.persona.tipoSanguineo">Tipo Sanguineo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tipoIdId"><span jhiTranslate="comparendosApp.persona.tipoId">Tipo Id</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="licenciaId"><span jhiTranslate="comparendosApp.persona.licencia">Licencia</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of personas ;trackBy: trackId">
+                    <td><a [routerLink]="['/persona', persona.id, 'view']">{{ persona.id }}</a></td>
+                    <td>{{ persona.nombres }}</td>
+                    <td>{{ persona.apellidos }}</td>
+                    <td>{{ persona.fechaNacimiento | date:'mediumDate' }}</td>
+                    <td>{{ persona.numeroId }}</td>
+                    <td>{{ persona.direccion }}</td>
+                    <td>{{ persona.telefono }}</td>
+                    <td>{{ persona.celular }}</td>
+                    <td>{{ persona.email }}</td>
+                    <td>
+                        <div *ngIf="persona.ciudadId">
+                            <a [routerLink]="['/ciudad', persona.ciudadId , 'view']" >{{ persona.ciudadId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="persona.generoId">
+                            <a [routerLink]="['/genero', persona.generoId , 'view']" >{{ persona.generoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="persona.tipoSanguineoId">
+                            <a [routerLink]="['/tipo-sanguineo', persona.tipoSanguineoId , 'view']" >{{ persona.tipoSanguineoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="persona.tipoIdId">
+                            <a [routerLink]="['/tipo-identificacion', persona.tipoIdId , 'view']" >{{ persona.tipoIdId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="persona.licenciaId">
+                            <a [routerLink]="['/licencia', persona.licenciaId , 'view']" >{{ persona.licenciaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/persona', persona.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/persona', persona.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(persona)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="personas && personas.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "ClaseVehiculo",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "clase",
+      "relationshipName": "vehiculo"
+    }
+  ],
+  "changelogDate": "20200718221325",
+  "entityTableName": "clase_vehiculo",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

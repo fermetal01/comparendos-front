@@ -1,0 +1,25 @@
+{
+  "comparendosApp": {
+    "agente": {
+      "home": {
+        "title": "Agentes",
+        "createLabel": "Crear nuevo Agente",
+        "createOrEditLabel": "Crear o editar Agente",
+        "notFound": "Ningún Agentes encontrado"
+      },
+      "created": "Un nuevo Agente ha sido creado con el identificador {{ param }}",
+      "updated": "Un Agente ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Agente ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Agente {{ id }}?"
+      },
+      "detail": {
+        "title": "Agente"
+      },
+      "placa": "Placa",
+      "comparendo": "Comparendo",
+      "persona": "Persona",
+      "rango": "Rango"
+    }
+  }
+}

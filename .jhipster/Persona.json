@@ -1,0 +1,124 @@
+{
+  "name": "Persona",
+  "fields": [
+    {
+      "fieldName": "nombres",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "apellidos",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fechaNacimiento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "numeroId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "celular",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "usuario"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "agente",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "agente"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "vehiculo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "infractor",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "testigo",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ciudad",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "ciudad",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "genero",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "genero",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoSanguineo",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "tipoSanguineo",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tipoIdentificacion",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "tipoId",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "licencia",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "licencia",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "vehiculo",
+      "otherEntityRelationshipName": "persona",
+      "relationshipValidateRules": "required",
+      "relationshipName": "vehiculo",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200718215925",
+  "entityTableName": "persona",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

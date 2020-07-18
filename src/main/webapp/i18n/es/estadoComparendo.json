@@ -1,0 +1,23 @@
+{
+  "comparendosApp": {
+    "estadoComparendo": {
+      "home": {
+        "title": "Estado Comparendos",
+        "createLabel": "Crear nuevo Estado Comparendo",
+        "createOrEditLabel": "Crear o editar Estado Comparendo",
+        "notFound": "Ningún Estado Comparendos encontrado"
+      },
+      "created": "Un nuevo Estado Comparendo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Estado Comparendo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Estado Comparendo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Estado Comparendo {{ id }}?"
+      },
+      "detail": {
+        "title": "Estado Comparendo"
+      },
+      "tipo": "Tipo",
+      "comparendo": "Comparendo"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "comparendosApp": {
+    "entidad": {
+      "home": {
+        "title": "Entidads",
+        "createLabel": "Crear nuevo Entidad",
+        "createOrEditLabel": "Crear o editar Entidad",
+        "notFound": "Ningún Entidads encontrado"
+      },
+      "created": "Un nuevo Entidad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Entidad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Entidad ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Entidad {{ id }}?"
+      },
+      "detail": {
+        "title": "Entidad"
+      },
+      "nombre": "Nombre",
+      "direccion": "Direccion",
+      "telefono": "Telefono",
+      "celular": "Celular",
+      "email": "Email",
+      "comparendo": "Comparendo",
+      "ciudad": "Ciudad",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

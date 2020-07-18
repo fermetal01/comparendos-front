@@ -1,0 +1,143 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="comparendosApp.comparendo.home.title">Comparendos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-comparendo" [routerLink]="['/comparendo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="comparendosApp.comparendo.home.createLabel">
+            Create a new Comparendo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="comparendos?.length === 0">
+        <span jhiTranslate="comparendosApp.comparendo.home.notFound">No comparendos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="comparendos && comparendos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fechaHora"><span jhiTranslate="comparendosApp.comparendo.fechaHora">Fecha Hora</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="comparendosApp.comparendo.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="observaciones"><span jhiTranslate="comparendosApp.comparendo.observaciones">Observaciones</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codigoInmovilizacion"><span jhiTranslate="comparendosApp.comparendo.codigoInmovilizacion">Codigo Inmovilizacion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="estadoId"><span jhiTranslate="comparendosApp.comparendo.estado">Estado</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vehiculoId"><span jhiTranslate="comparendosApp.comparendo.vehiculo">Vehiculo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="licenciaTransitoId"><span jhiTranslate="comparendosApp.comparendo.licenciaTransito">Licencia Transito</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="licenciaConduccionId"><span jhiTranslate="comparendosApp.comparendo.licenciaConduccion">Licencia Conduccion</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="agenteId"><span jhiTranslate="comparendosApp.comparendo.agente">Agente</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ciudadId"><span jhiTranslate="comparendosApp.comparendo.ciudad">Ciudad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="infractorId"><span jhiTranslate="comparendosApp.comparendo.infractor">Infractor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="testigoId"><span jhiTranslate="comparendosApp.comparendo.testigo">Testigo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="patioId"><span jhiTranslate="comparendosApp.comparendo.patio">Patio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="gruaId"><span jhiTranslate="comparendosApp.comparendo.grua">Grua</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="entidadId"><span jhiTranslate="comparendosApp.comparendo.entidad">Entidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let comparendo of comparendos ;trackBy: trackId">
+                    <td><a [routerLink]="['/comparendo', comparendo.id, 'view']">{{ comparendo.id }}</a></td>
+                    <td>{{ comparendo.fechaHora | date:'medium' }}</td>
+                    <td>{{ comparendo.direccion }}</td>
+                    <td>{{ comparendo.observaciones }}</td>
+                    <td>{{ comparendo.codigoInmovilizacion }}</td>
+                    <td>
+                        <div *ngIf="comparendo.estadoId">
+                            <a [routerLink]="['/estado-comparendo', comparendo.estadoId , 'view']" >{{ comparendo.estadoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.vehiculoId">
+                            <a [routerLink]="['/vehiculo', comparendo.vehiculoId , 'view']" >{{ comparendo.vehiculoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.licenciaTransitoId">
+                            <a [routerLink]="['/licencia', comparendo.licenciaTransitoId , 'view']" >{{ comparendo.licenciaTransitoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.licenciaConduccionId">
+                            <a [routerLink]="['/licencia', comparendo.licenciaConduccionId , 'view']" >{{ comparendo.licenciaConduccionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.agenteId">
+                            <a [routerLink]="['/agente', comparendo.agenteId , 'view']" >{{ comparendo.agenteId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.ciudadId">
+                            <a [routerLink]="['/ciudad', comparendo.ciudadId , 'view']" >{{ comparendo.ciudadId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.infractorId">
+                            <a [routerLink]="['/persona', comparendo.infractorId , 'view']" >{{ comparendo.infractorId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.testigoId">
+                            <a [routerLink]="['/persona', comparendo.testigoId , 'view']" >{{ comparendo.testigoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.patioId">
+                            <a [routerLink]="['/patio', comparendo.patioId , 'view']" >{{ comparendo.patioId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.gruaId">
+                            <a [routerLink]="['/grua', comparendo.gruaId , 'view']" >{{ comparendo.gruaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="comparendo.entidadId">
+                            <a [routerLink]="['/entidad', comparendo.entidadId , 'view']" >{{ comparendo.entidadId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/comparendo', comparendo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/comparendo', comparendo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(comparendo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="comparendos && comparendos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

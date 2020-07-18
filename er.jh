@@ -1,0 +1,185 @@
+entity Ciudad {
+	nombre String
+}
+
+entity Departamento {
+	nombre String
+}
+
+entity Persona {
+	nombres String,
+    apellidos String,
+    fechaNacimiento LocalDate,
+    numeroId String,
+    direccion String,
+    telefono String,
+    celular String,
+    email String
+}
+
+entity Genero {
+	nombre String
+}
+
+entity TipoIdentificacion {
+	nombre String
+}
+
+entity TipoSanguineo {
+	tipo String
+}
+
+entity Licencia {
+	fechaExpedicion LocalDate,
+    vigencia LocalDate,
+    serial String
+}
+
+entity TipoLicencia {
+	tipo String
+}
+
+entity Categoria{
+	tipo String
+}
+
+entity Servicio{
+	tipo String
+}
+
+entity Restriccion{
+	tipo String
+}
+
+entity OrganismoTransito{
+	nombre String
+}
+
+entity Agente {
+	placa String
+}
+
+entity Rango {
+	nombre String,
+    acronimo String
+}
+
+entity Vehiculo {
+	placa String,
+    linea String,
+    modelo Integer,
+    cilindraje Integer,
+    color String,
+    capacidad Integer,
+    numeroMotor String,
+    vin String,
+    serie String,
+    chasis String,
+    potencia String,
+    fechaMatricula LocalDate,
+}
+
+entity Marca {
+	nombre String
+}
+
+entity ClaseVehiculo {
+	nombre String
+}
+
+entity Combustible {
+	nombre String
+}
+
+entity Comparendo {
+	fechaHora ZonedDateTime,
+    direccion String,
+    observaciones String,
+    codigoInmovilizacion String
+}
+
+entity EstadoComparendo{
+	tipo String
+}
+
+entity Infraccion{
+	codigo String,
+    descripcion String
+}
+
+entity Patio {
+	nombre String,
+    numero String,
+    direccion String
+}
+
+entity Grua{
+	codigo String
+}
+
+entity Entidad{
+	nombre String,
+    direccion String,
+    telefono String,
+    celular String,
+    email String
+}
+
+relationship OneToMany {
+	Departamento{ciudad} to Ciudad{departamento} ,
+	Ciudad{persona} to Persona{ciudad},
+    Genero{persona} to Persona{genero} ,
+    TipoSanguineo to Persona{tipoSanguineo} ,
+    TipoIdentificacion to Persona{tipoId},
+    Licencia to Persona{licencia},
+    TipoLicencia to Licencia{tipoLicencia},
+    Persona{usuario} to User,
+    Categoria{licencia} to Licencia{categoria},
+    Servicio{licencia} to Licencia{servicio},
+    OrganismoTransito{licencia} to Licencia{organismoTransito},
+    Persona{agente} to Agente{persona},
+    Rango{agente} to Agente{rango},
+    Marca{vehiculo} to Vehiculo{marca},
+    Servicio{vehiculo} to Vehiculo{servicio},
+    ClaseVehiculo{vehiculo} to Vehiculo{clase},
+    Combustible{vehiculo} to Vehiculo{combustible},
+    OrganismoTransito{vehiculo} to Vehiculo{organismoTransito},
+    Licencia{vehiculo} to Vehiculo{licenciaTransito},
+    Persona{vehiculo} to Vehiculo{persona},
+    EstadoComparendo{comparendo} to Comparendo{estado},
+    Vehiculo{comparendo} to Comparendo{vehiculo},
+    Licencia{comparendo} to Comparendo{licenciaTransito},
+    Licencia{comparendo} to Comparendo{licenciaConduccion},
+    Agente{comparendo} to Comparendo{agente},
+    Ciudad{comparendo} to Comparendo{ciudad},
+    Persona{comparendo} to Comparendo {infractor},
+    Persona{comparendo} to Comparendo{testigo},
+    Patio{comparendo} to Comparendo{patio},
+    Vehiculo{grua} to Grua{vehiculo},
+    Grua{comparendo} to Comparendo{grua},
+    Entidad{comparendo} to Comparendo{entidad},
+    Ciudad{entidad} to Entidad{ciudad}
+}
+
+
+
+relationship ManyToMany {
+	Licencia{restriccion required} to Restriccion{licencia}
+    Vehiculo{restriccion required} to Restriccion{vehiculo}
+    Vehiculo{persona} to Persona{vehiculo required}
+    Vehiculo{entidad} to Entidad{vehiculo required}
+    Comparendo{infracciones required} to Infraccion{comparendo}
+}
+
+// Set pagination options
+// paginate Licencia, Persona with infinite-scroll
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+dto all with mapstruct
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

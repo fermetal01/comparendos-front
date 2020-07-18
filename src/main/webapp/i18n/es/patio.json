@@ -1,0 +1,25 @@
+{
+  "comparendosApp": {
+    "patio": {
+      "home": {
+        "title": "Patios",
+        "createLabel": "Crear nuevo Patio",
+        "createOrEditLabel": "Crear o editar Patio",
+        "notFound": "Ningún Patios encontrado"
+      },
+      "created": "Un nuevo Patio ha sido creado con el identificador {{ param }}",
+      "updated": "Un Patio ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Patio ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Patio {{ id }}?"
+      },
+      "detail": {
+        "title": "Patio"
+      },
+      "nombre": "Nombre",
+      "numero": "Numero",
+      "direccion": "Direccion",
+      "comparendo": "Comparendo"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-licencia-heading" jhiTranslate="comparendosApp.licencia.home.createOrEditLabel">Create or edit a Licencia</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.fechaExpedicion" for="field_fechaExpedicion">Fecha Expedicion</label>
+                    <div class="input-group">
+                        <input id="field_fechaExpedicion" type="text" class="form-control" name="fechaExpedicion" ngbDatepicker #fechaExpedicionDp="ngbDatepicker" formControlName="fechaExpedicion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaExpedicionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.vigencia" for="field_vigencia">Vigencia</label>
+                    <div class="input-group">
+                        <input id="field_vigencia" type="text" class="form-control" name="vigencia" ngbDatepicker #vigenciaDp="ngbDatepicker" formControlName="vigencia"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="vigenciaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.serial" for="field_serial">Serial</label>
+                    <input type="text" class="form-control" name="serial" id="field_serial"
+                           formControlName="serial"/>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="comparendosApp.licencia.restriccion" for="field_restriccions">Restriccion</label>
+                    <select class="form-control" id="field_restriccions" multiple name="restriccions" formControlName="restriccions">
+                        <option [ngValue]="getSelected(editForm.get('restriccions')!.value, restriccionOption)" *ngFor="let restriccionOption of restriccions; trackBy: trackById">{{ restriccionOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('restriccions')!.invalid && (editForm.get('restriccions')!.dirty || editForm.get('restriccions')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('restriccions')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.tipoLicencia" for="field_tipoLicencia">Tipo Licencia</label>
+                    <select class="form-control" id="field_tipoLicencia" name="tipoLicencia" formControlName="tipoLicenciaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoLicenciaOption.id" *ngFor="let tipoLicenciaOption of tipolicencias; trackBy: trackById">{{ tipoLicenciaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.categoria" for="field_categoria">Categoria</label>
+                    <select class="form-control" id="field_categoria" name="categoria" formControlName="categoriaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaOption.id" *ngFor="let categoriaOption of categorias; trackBy: trackById">{{ categoriaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.servicio" for="field_servicio">Servicio</label>
+                    <select class="form-control" id="field_servicio" name="servicio" formControlName="servicioId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="servicioOption.id" *ngFor="let servicioOption of servicios; trackBy: trackById">{{ servicioOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="comparendosApp.licencia.organismoTransito" for="field_organismoTransito">Organismo Transito</label>
+                    <select class="form-control" id="field_organismoTransito" name="organismoTransito" formControlName="organismoTransitoId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="organismoTransitoOption.id" *ngFor="let organismoTransitoOption of organismotransitos; trackBy: trackById">{{ organismoTransitoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

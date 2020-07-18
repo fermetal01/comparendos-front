@@ -1,0 +1,23 @@
+{
+  "comparendosApp": {
+    "claseVehiculo": {
+      "home": {
+        "title": "Clase Vehiculos",
+        "createLabel": "Crear nuevo Clase Vehiculo",
+        "createOrEditLabel": "Crear o editar Clase Vehiculo",
+        "notFound": "Ningún Clase Vehiculos encontrado"
+      },
+      "created": "Un nuevo Clase Vehiculo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clase Vehiculo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clase Vehiculo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clase Vehiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Clase Vehiculo"
+      },
+      "nombre": "Nombre",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

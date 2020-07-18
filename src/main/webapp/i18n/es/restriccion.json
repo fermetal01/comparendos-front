@@ -1,0 +1,24 @@
+{
+  "comparendosApp": {
+    "restriccion": {
+      "home": {
+        "title": "Restriccions",
+        "createLabel": "Crear nuevo Restriccion",
+        "createOrEditLabel": "Crear o editar Restriccion",
+        "notFound": "Ningún Restriccions encontrado"
+      },
+      "created": "Un nuevo Restriccion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Restriccion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Restriccion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Restriccion {{ id }}?"
+      },
+      "detail": {
+        "title": "Restriccion"
+      },
+      "tipo": "Tipo",
+      "licencia": "Licencia",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

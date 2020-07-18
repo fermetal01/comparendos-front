@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="comparendo">
+            <h2><span jhiTranslate="comparendosApp.comparendo.detail.title">Comparendo</span> {{ comparendo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="comparendosApp.comparendo.fechaHora">Fecha Hora</span></dt>
+                <dd>
+                    <span>{{ comparendo.fechaHora }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ comparendo.direccion }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.observaciones">Observaciones</span></dt>
+                <dd>
+                    <span>{{ comparendo.observaciones }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.codigoInmovilizacion">Codigo Inmovilizacion</span></dt>
+                <dd>
+                    <span>{{ comparendo.codigoInmovilizacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.infracciones">Infracciones</span></dt>
+                <dd>
+                    <span *ngFor="let infracciones of comparendo.infracciones; let last = last">
+                        <a [routerLink]="['/infraccion', infracciones?.id, 'view']">{{ infracciones.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.estado">Estado</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.estadoId">
+                        <a [routerLink]="['/estado-comparendo', comparendo.estadoId, 'view']">{{ comparendo.estadoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.vehiculo">Vehiculo</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.vehiculoId">
+                        <a [routerLink]="['/vehiculo', comparendo.vehiculoId, 'view']">{{ comparendo.vehiculoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.licenciaTransito">Licencia Transito</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.licenciaTransitoId">
+                        <a [routerLink]="['/licencia', comparendo.licenciaTransitoId, 'view']">{{ comparendo.licenciaTransitoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.licenciaConduccion">Licencia Conduccion</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.licenciaConduccionId">
+                        <a [routerLink]="['/licencia', comparendo.licenciaConduccionId, 'view']">{{ comparendo.licenciaConduccionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.agente">Agente</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.agenteId">
+                        <a [routerLink]="['/agente', comparendo.agenteId, 'view']">{{ comparendo.agenteId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.ciudad">Ciudad</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.ciudadId">
+                        <a [routerLink]="['/ciudad', comparendo.ciudadId, 'view']">{{ comparendo.ciudadId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.infractor">Infractor</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.infractorId">
+                        <a [routerLink]="['/persona', comparendo.infractorId, 'view']">{{ comparendo.infractorId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.testigo">Testigo</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.testigoId">
+                        <a [routerLink]="['/persona', comparendo.testigoId, 'view']">{{ comparendo.testigoId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.patio">Patio</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.patioId">
+                        <a [routerLink]="['/patio', comparendo.patioId, 'view']">{{ comparendo.patioId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.grua">Grua</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.gruaId">
+                        <a [routerLink]="['/grua', comparendo.gruaId, 'view']">{{ comparendo.gruaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="comparendosApp.comparendo.entidad">Entidad</span></dt>
+                <dd>
+                    <div *ngIf="comparendo.entidadId">
+                        <a [routerLink]="['/entidad', comparendo.entidadId, 'view']">{{ comparendo.entidadId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/comparendo', comparendo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

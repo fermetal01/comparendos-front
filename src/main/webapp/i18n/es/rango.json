@@ -1,0 +1,24 @@
+{
+  "comparendosApp": {
+    "rango": {
+      "home": {
+        "title": "Rangos",
+        "createLabel": "Crear nuevo Rango",
+        "createOrEditLabel": "Crear o editar Rango",
+        "notFound": "Ningún Rangos encontrado"
+      },
+      "created": "Un nuevo Rango ha sido creado con el identificador {{ param }}",
+      "updated": "Un Rango ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Rango ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Rango {{ id }}?"
+      },
+      "detail": {
+        "title": "Rango"
+      },
+      "nombre": "Nombre",
+      "acronimo": "Acronimo",
+      "agente": "Agente"
+    }
+  }
+}

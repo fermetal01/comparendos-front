@@ -1,0 +1,28 @@
+{
+  "name": "Genero",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "genero",
+      "relationshipName": "persona"
+    }
+  ],
+  "changelogDate": "20200718220025",
+  "entityTableName": "genero",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

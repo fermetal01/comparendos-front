@@ -1,0 +1,40 @@
+{
+  "comparendosApp": {
+    "persona": {
+      "home": {
+        "title": "Personas",
+        "createLabel": "Crear nuevo Persona",
+        "createOrEditLabel": "Crear o editar Persona",
+        "notFound": "Ningún Personas encontrado"
+      },
+      "created": "Un nuevo Persona ha sido creado con el identificador {{ param }}",
+      "updated": "Un Persona ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Persona ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Persona {{ id }}?"
+      },
+      "detail": {
+        "title": "Persona"
+      },
+      "nombres": "Nombres",
+      "apellidos": "Apellidos",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "numeroId": "Numero Id",
+      "direccion": "Direccion",
+      "telefono": "Telefono",
+      "celular": "Celular",
+      "email": "Email",
+      "usuario": "Usuario",
+      "agente": "Agente",
+      "vehiculo": "Vehiculo",
+      "comparendo": "Comparendo",
+      "comparendo": "Comparendo",
+      "ciudad": "Ciudad",
+      "genero": "Genero",
+      "tipoSanguineo": "Tipo Sanguineo",
+      "tipoId": "Tipo Id",
+      "licencia": "Licencia",
+      "vehiculo": "Vehiculo"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="comparendosApp.vehiculo.home.title">Vehiculos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vehiculo" [routerLink]="['/vehiculo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="comparendosApp.vehiculo.home.createLabel">
+            Create a new Vehiculo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="vehiculos?.length === 0">
+        <span jhiTranslate="comparendosApp.vehiculo.home.notFound">No vehiculos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="vehiculos && vehiculos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="placa"><span jhiTranslate="comparendosApp.vehiculo.placa">Placa</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="linea"><span jhiTranslate="comparendosApp.vehiculo.linea">Linea</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modelo"><span jhiTranslate="comparendosApp.vehiculo.modelo">Modelo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cilindraje"><span jhiTranslate="comparendosApp.vehiculo.cilindraje">Cilindraje</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="color"><span jhiTranslate="comparendosApp.vehiculo.color">Color</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="capacidad"><span jhiTranslate="comparendosApp.vehiculo.capacidad">Capacidad</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numeroMotor"><span jhiTranslate="comparendosApp.vehiculo.numeroMotor">Numero Motor</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="vin"><span jhiTranslate="comparendosApp.vehiculo.vin">Vin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serie"><span jhiTranslate="comparendosApp.vehiculo.serie">Serie</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="chasis"><span jhiTranslate="comparendosApp.vehiculo.chasis">Chasis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="potencia"><span jhiTranslate="comparendosApp.vehiculo.potencia">Potencia</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fechaMatricula"><span jhiTranslate="comparendosApp.vehiculo.fechaMatricula">Fecha Matricula</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="marcaId"><span jhiTranslate="comparendosApp.vehiculo.marca">Marca</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="servicioId"><span jhiTranslate="comparendosApp.vehiculo.servicio">Servicio</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="claseId"><span jhiTranslate="comparendosApp.vehiculo.clase">Clase</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="combustibleId"><span jhiTranslate="comparendosApp.vehiculo.combustible">Combustible</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="organismoTransitoId"><span jhiTranslate="comparendosApp.vehiculo.organismoTransito">Organismo Transito</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="licenciaTransitoId"><span jhiTranslate="comparendosApp.vehiculo.licenciaTransito">Licencia Transito</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personaId"><span jhiTranslate="comparendosApp.vehiculo.persona">Persona</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vehiculo of vehiculos ;trackBy: trackId">
+                    <td><a [routerLink]="['/vehiculo', vehiculo.id, 'view']">{{ vehiculo.id }}</a></td>
+                    <td>{{ vehiculo.placa }}</td>
+                    <td>{{ vehiculo.linea }}</td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.cilindraje }}</td>
+                    <td>{{ vehiculo.color }}</td>
+                    <td>{{ vehiculo.capacidad }}</td>
+                    <td>{{ vehiculo.numeroMotor }}</td>
+                    <td>{{ vehiculo.vin }}</td>
+                    <td>{{ vehiculo.serie }}</td>
+                    <td>{{ vehiculo.chasis }}</td>
+                    <td>{{ vehiculo.potencia }}</td>
+                    <td>{{ vehiculo.fechaMatricula | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="vehiculo.marcaId">
+                            <a [routerLink]="['/marca', vehiculo.marcaId , 'view']" >{{ vehiculo.marcaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.servicioId">
+                            <a [routerLink]="['/servicio', vehiculo.servicioId , 'view']" >{{ vehiculo.servicioId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.claseId">
+                            <a [routerLink]="['/clase-vehiculo', vehiculo.claseId , 'view']" >{{ vehiculo.claseId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.combustibleId">
+                            <a [routerLink]="['/combustible', vehiculo.combustibleId , 'view']" >{{ vehiculo.combustibleId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.organismoTransitoId">
+                            <a [routerLink]="['/organismo-transito', vehiculo.organismoTransitoId , 'view']" >{{ vehiculo.organismoTransitoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.licenciaTransitoId">
+                            <a [routerLink]="['/licencia', vehiculo.licenciaTransitoId , 'view']" >{{ vehiculo.licenciaTransitoId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vehiculo.personaId">
+                            <a [routerLink]="['/persona', vehiculo.personaId , 'view']" >{{ vehiculo.personaId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/vehiculo', vehiculo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/vehiculo', vehiculo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(vehiculo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="vehiculos && vehiculos.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

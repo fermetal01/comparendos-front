@@ -1,0 +1,23 @@
+{
+  "comparendosApp": {
+    "tipoSanguineo": {
+      "home": {
+        "title": "Tipo Sanguineos",
+        "createLabel": "Crear nuevo Tipo Sanguineo",
+        "createOrEditLabel": "Crear o editar Tipo Sanguineo",
+        "notFound": "Ningún Tipo Sanguineos encontrado"
+      },
+      "created": "Un nuevo Tipo Sanguineo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Sanguineo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Sanguineo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Sanguineo {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Sanguineo"
+      },
+      "tipo": "Tipo",
+      "persona": "Persona"
+    }
+  }
+}

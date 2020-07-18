@@ -1,0 +1,45 @@
+{
+  "comparendosApp": {
+    "vehiculo": {
+      "home": {
+        "title": "Vehiculos",
+        "createLabel": "Crear nuevo Vehiculo",
+        "createOrEditLabel": "Crear o editar Vehiculo",
+        "notFound": "Ningún Vehiculos encontrado"
+      },
+      "created": "Un nuevo Vehiculo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vehiculo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vehiculo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vehiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehiculo"
+      },
+      "placa": "Placa",
+      "linea": "Linea",
+      "modelo": "Modelo",
+      "cilindraje": "Cilindraje",
+      "color": "Color",
+      "capacidad": "Capacidad",
+      "numeroMotor": "Numero Motor",
+      "vin": "Vin",
+      "serie": "Serie",
+      "chasis": "Chasis",
+      "potencia": "Potencia",
+      "fechaMatricula": "Fecha Matricula",
+      "comparendo": "Comparendo",
+      "grua": "Grua",
+      "restriccion": "Restriccion",
+      "persona": "Persona",
+      "entidad": "Entidad",
+      "marca": "Marca",
+      "servicio": "Servicio",
+      "clase": "Clase",
+      "combustible": "Combustible",
+      "organismoTransito": "Organismo Transito",
+      "licenciaTransito": "Licencia Transito",
+      "persona": "Persona"
+    }
+  }
+}

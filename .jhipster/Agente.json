@@ -1,0 +1,42 @@
+{
+  "name": "Agente",
+  "fields": [
+    {
+      "fieldName": "placa",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "comparendo",
+      "otherEntityRelationshipName": "agente",
+      "relationshipName": "comparendo"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "agente",
+      "relationshipName": "persona",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "rango",
+      "otherEntityRelationshipName": "agente",
+      "relationshipName": "rango",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200718220925",
+  "entityTableName": "agente",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
