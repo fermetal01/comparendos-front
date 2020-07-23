@@ -2,6 +2,8 @@ package co.edu.ucentral.app.service.dto;
 
 import java.io.Serializable;
 
+import co.edu.ucentral.app.domain.Departamento;
+
 /**
  * A DTO for the {@link co.edu.ucentral.app.domain.Ciudad} entity.
  */
@@ -11,10 +13,20 @@ public class CiudadDTO implements Serializable {
 
     private String nombre;
 
-
-    private String departamentoId;
+    private Departamento departamento;
     
-    public String getId() {
+    private String departamentoId;
+        
+   
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public String getId() {
         return id;
     }
 
@@ -55,13 +67,15 @@ public class CiudadDTO implements Serializable {
         return 31;
     }
 
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "CiudadDTO{" +
-            "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
-            ", departamentoId='" + getDepartamentoId() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CiudadDTO [id=" + id + ", nombre=" + nombre + ", departamento=" + departamento + ", departamentoId="
+				+ departamentoId + "]";
+	}
+
+	
+
+
+    
+    
 }

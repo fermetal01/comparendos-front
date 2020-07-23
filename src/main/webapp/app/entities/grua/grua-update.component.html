@@ -21,7 +21,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.grua.vehiculo" for="field_vehiculo">Vehiculo</label>
                     <select class="form-control" id="field_vehiculo" name="vehiculo" formControlName="vehiculoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vehiculoOption.id" *ngFor="let vehiculoOption of vehiculos; trackBy: trackById">{{ vehiculoOption.id }}</option>
+                        <option [ngValue]="vehiculoOption.id" *ngFor="let vehiculoOption of vehiculos; trackBy: trackById">{{ vehiculoOption.placa }}</option>
                     </select>
                 </div>
             </div>

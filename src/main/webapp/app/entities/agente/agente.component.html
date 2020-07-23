@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="placa"><span jhiTranslate="comparendosApp.agente.placa">Placa</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="personaId"><span jhiTranslate="comparendosApp.agente.persona">Persona</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="rangoId"><span jhiTranslate="comparendosApp.agente.rango">Rango</span> <fa-icon icon="sort"></fa-icon></th>
@@ -31,7 +30,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let agente of agentes ;trackBy: trackId">
-                    <td><a [routerLink]="['/agente', agente.id, 'view']">{{ agente.id }}</a></td>
                     <td>{{ agente.placa }}</td>
                     <td>
                         <div *ngIf="agente.personaId">

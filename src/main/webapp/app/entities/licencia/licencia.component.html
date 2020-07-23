@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="fechaExpedicion"><span jhiTranslate="comparendosApp.licencia.fechaExpedicion">Fecha Expedicion</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="vigencia"><span jhiTranslate="comparendosApp.licencia.vigencia">Vigencia</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="serial"><span jhiTranslate="comparendosApp.licencia.serial">Serial</span> <fa-icon icon="sort"></fa-icon></th>
@@ -35,7 +34,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let licencia of licencias ;trackBy: trackId">
-                    <td><a [routerLink]="['/licencia', licencia.id, 'view']">{{ licencia.id }}</a></td>
                     <td>{{ licencia.fechaExpedicion | date:'mediumDate' }}</td>
                     <td>{{ licencia.vigencia | date:'mediumDate' }}</td>
                     <td>{{ licencia.serial }}</td>

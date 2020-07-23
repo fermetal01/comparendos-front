@@ -12,17 +12,17 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {InfraccionMapper.class, EstadoComparendoMapper.class, VehiculoMapper.class, LicenciaMapper.class, AgenteMapper.class, CiudadMapper.class, PersonaMapper.class, PatioMapper.class, GruaMapper.class, EntidadMapper.class})
 public interface ComparendoMapper extends EntityMapper<ComparendoDTO, Comparendo> {
 
-    @Mapping(source = "estado.id", target = "estadoId")
-    @Mapping(source = "vehiculo.id", target = "vehiculoId")
-    @Mapping(source = "licenciaTransito.id", target = "licenciaTransitoId")
-    @Mapping(source = "licenciaConduccion.id", target = "licenciaConduccionId")
-    @Mapping(source = "agente.id", target = "agenteId")
-    @Mapping(source = "ciudad.id", target = "ciudadId")
-    @Mapping(source = "infractor.id", target = "infractorId")
-    @Mapping(source = "testigo.id", target = "testigoId")
-    @Mapping(source = "patio.id", target = "patioId")
-    @Mapping(source = "grua.id", target = "gruaId")
-    @Mapping(source = "entidad.id", target = "entidadId")
+    @Mapping(source = "estado.tipo", target = "estadoId")
+    @Mapping(source = "vehiculo.placa", target = "vehiculoId")
+    @Mapping(source = "licenciaTransito.serial", target = "licenciaTransitoId")
+    @Mapping(source = "licenciaConduccion.serial", target = "licenciaConduccionId")
+    @Mapping(source = "agente.placa", target = "agenteId")
+    @Mapping(source = "ciudad.nombre", target = "ciudadId")
+    @Mapping(source = "infractor.nombres", target = "infractorId")
+    @Mapping(source = "testigo.nombres", target = "testigoId")
+    @Mapping(source = "patio.nombre", target = "patioId")
+    @Mapping(source = "grua.codigo", target = "gruaId")
+    @Mapping(source = "entidad.nombre", target = "entidadId")
     ComparendoDTO toDto(Comparendo comparendo);
 
     @Mapping(target = "removeInfracciones", ignore = true)

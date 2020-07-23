@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="placa"><span jhiTranslate="comparendosApp.vehiculo.placa">Placa</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="linea"><span jhiTranslate="comparendosApp.vehiculo.linea">Linea</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="modelo"><span jhiTranslate="comparendosApp.vehiculo.modelo">Modelo</span> <fa-icon icon="sort"></fa-icon></th>
@@ -47,7 +46,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let vehiculo of vehiculos ;trackBy: trackId">
-                    <td><a [routerLink]="['/vehiculo', vehiculo.id, 'view']">{{ vehiculo.id }}</a></td>
                     <td>{{ vehiculo.placa }}</td>
                     <td>{{ vehiculo.linea }}</td>
                     <td>{{ vehiculo.modelo }}</td>

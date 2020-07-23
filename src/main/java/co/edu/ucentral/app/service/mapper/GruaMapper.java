@@ -12,7 +12,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {VehiculoMapper.class})
 public interface GruaMapper extends EntityMapper<GruaDTO, Grua> {
 
-    @Mapping(source = "vehiculo.id", target = "vehiculoId")
+    @Mapping(source = "vehiculo.placa", target = "vehiculoId")
     GruaDTO toDto(Grua grua);
 
     @Mapping(target = "comparendos", ignore = true)

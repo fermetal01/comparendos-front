@@ -12,8 +12,8 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {PersonaMapper.class, RangoMapper.class})
 public interface AgenteMapper extends EntityMapper<AgenteDTO, Agente> {
 
-    @Mapping(source = "persona.id", target = "personaId")
-    @Mapping(source = "rango.id", target = "rangoId")
+    @Mapping(source = "persona.nombres", target = "personaId")
+    @Mapping(source = "rango.nombre", target = "rangoId")
     AgenteDTO toDto(Agente agente);
 
     @Mapping(target = "comparendos", ignore = true)

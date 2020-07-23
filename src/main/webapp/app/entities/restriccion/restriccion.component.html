@@ -22,14 +22,12 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="tipo"><span jhiTranslate="comparendosApp.restriccion.tipo">Tipo</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let restriccion of restriccions ;trackBy: trackId">
-                    <td><a [routerLink]="['/restriccion', restriccion.id, 'view']">{{ restriccion.id }}</a></td>
                     <td>{{ restriccion.tipo }}</td>
                     <td class="text-right">
                         <div class="btn-group">

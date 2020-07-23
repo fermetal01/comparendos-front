@@ -12,7 +12,7 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {CiudadMapper.class})
 public interface EntidadMapper extends EntityMapper<EntidadDTO, Entidad> {
 
-    @Mapping(source = "ciudad.id", target = "ciudadId")
+    @Mapping(source = "ciudad.nombre", target = "ciudadId")
     EntidadDTO toDto(Entidad entidad);
 
     @Mapping(target = "comparendos", ignore = true)

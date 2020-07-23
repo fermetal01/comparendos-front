@@ -12,13 +12,13 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {RestriccionMapper.class, PersonaMapper.class, EntidadMapper.class, MarcaMapper.class, ServicioMapper.class, ClaseVehiculoMapper.class, CombustibleMapper.class, OrganismoTransitoMapper.class, LicenciaMapper.class})
 public interface VehiculoMapper extends EntityMapper<VehiculoDTO, Vehiculo> {
 
-    @Mapping(source = "marca.id", target = "marcaId")
-    @Mapping(source = "servicio.id", target = "servicioId")
-    @Mapping(source = "clase.id", target = "claseId")
-    @Mapping(source = "combustible.id", target = "combustibleId")
-    @Mapping(source = "organismoTransito.id", target = "organismoTransitoId")
-    @Mapping(source = "licenciaTransito.id", target = "licenciaTransitoId")
-    @Mapping(source = "persona.id", target = "personaId")
+    @Mapping(source = "marca.nombre", target = "marcaId")
+    @Mapping(source = "servicio.tipo", target = "servicioId")
+    @Mapping(source = "clase.nombre", target = "claseId")
+    @Mapping(source = "combustible.nombre", target = "combustibleId")
+    @Mapping(source = "organismoTransito.nombre", target = "organismoTransitoId")
+    @Mapping(source = "licenciaTransito.serial", target = "licenciaTransitoId")
+    @Mapping(source = "persona.nombres", target = "personaId")
     VehiculoDTO toDto(Vehiculo vehiculo);
 
     @Mapping(target = "comparendos", ignore = true)

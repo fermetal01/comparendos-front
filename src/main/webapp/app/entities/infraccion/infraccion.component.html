@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="codigo"><span jhiTranslate="comparendosApp.infraccion.codigo">Codigo</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="descripcion"><span jhiTranslate="comparendosApp.infraccion.descripcion">Descripcion</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
@@ -30,7 +29,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let infraccion of infraccions ;trackBy: trackId">
-                    <td><a [routerLink]="['/infraccion', infraccion.id, 'view']">{{ infraccion.id }}</a></td>
                     <td>{{ infraccion.codigo }}</td>
                     <td>{{ infraccion.descripcion }}</td>
                     <td class="text-right">

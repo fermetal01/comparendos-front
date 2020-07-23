@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="fechaHora"><span jhiTranslate="comparendosApp.comparendo.fechaHora">Fecha Hora</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="comparendosApp.comparendo.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="observaciones"><span jhiTranslate="comparendosApp.comparendo.observaciones">Observaciones</span> <fa-icon icon="sort"></fa-icon></th>
@@ -43,7 +42,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let comparendo of comparendos ;trackBy: trackId">
-                    <td><a [routerLink]="['/comparendo', comparendo.id, 'view']">{{ comparendo.id }}</a></td>
                     <td>{{ comparendo.fechaHora | date:'medium' }}</td>
                     <td>{{ comparendo.direccion }}</td>
                     <td>{{ comparendo.observaciones }}</td>

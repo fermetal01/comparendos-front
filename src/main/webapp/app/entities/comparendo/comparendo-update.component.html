@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label jhiTranslate="comparendosApp.comparendo.infracciones" for="field_infracciones">Infracciones</label>
                     <select class="form-control" id="field_infracciones" multiple name="infracciones" formControlName="infracciones">
-                        <option [ngValue]="getSelected(editForm.get('infracciones')!.value, infraccionOption)" *ngFor="let infraccionOption of infraccions; trackBy: trackById">{{ infraccionOption.id }}</option>
+                        <option [ngValue]="getSelected(editForm.get('infracciones')!.value, infraccionOption)" *ngFor="let infraccionOption of infraccions; trackBy: trackById">{{ infraccionOption.codigo }}</option>
                     </select>
                 </div>
                 <div *ngIf="editForm.get('infracciones')!.invalid && (editForm.get('infracciones')!.dirty || editForm.get('infracciones')!.touched)">
@@ -53,7 +53,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.estado" for="field_estado">Estado</label>
                     <select class="form-control" id="field_estado" name="estado" formControlName="estadoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="estadoComparendoOption.id" *ngFor="let estadoComparendoOption of estadocomparendos; trackBy: trackById">{{ estadoComparendoOption.id }}</option>
+                        <option [ngValue]="estadoComparendoOption.id" *ngFor="let estadoComparendoOption of estadocomparendos; trackBy: trackById">{{ estadoComparendoOption.tipo }}</option>
                     </select>
                 </div>
 
@@ -61,7 +61,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.vehiculo" for="field_vehiculo">Vehiculo</label>
                     <select class="form-control" id="field_vehiculo" name="vehiculo" formControlName="vehiculoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vehiculoOption.id" *ngFor="let vehiculoOption of vehiculos; trackBy: trackById">{{ vehiculoOption.id }}</option>
+                        <option [ngValue]="vehiculoOption.id" *ngFor="let vehiculoOption of vehiculos; trackBy: trackById">{{ vehiculoOption.placa }}</option>
                     </select>
                 </div>
 
@@ -69,7 +69,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.licenciaTransito" for="field_licenciaTransito">Licencia Transito</label>
                     <select class="form-control" id="field_licenciaTransito" name="licenciaTransito" formControlName="licenciaTransitoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.id }}</option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.serial }}</option>
                     </select>
                 </div>
 
@@ -77,7 +77,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.licenciaConduccion" for="field_licenciaConduccion">Licencia Conduccion</label>
                     <select class="form-control" id="field_licenciaConduccion" name="licenciaConduccion" formControlName="licenciaConduccionId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.id }}</option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.serial }}</option>
                     </select>
                 </div>
 
@@ -85,7 +85,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.agente" for="field_agente">Agente</label>
                     <select class="form-control" id="field_agente" name="agente" formControlName="agenteId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="agenteOption.id" *ngFor="let agenteOption of agentes; trackBy: trackById">{{ agenteOption.id }}</option>
+                        <option [ngValue]="agenteOption.id" *ngFor="let agenteOption of agentes; trackBy: trackById">{{ agenteOption.placa }}</option>
                     </select>
                 </div>
 
@@ -93,7 +93,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.ciudad" for="field_ciudad">Ciudad</label>
                     <select class="form-control" id="field_ciudad" name="ciudad" formControlName="ciudadId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.id }}</option>
+                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.nombre }}</option>
                     </select>
                 </div>
 
@@ -101,7 +101,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.infractor" for="field_infractor">Infractor</label>
                     <select class="form-control" id="field_infractor" name="infractor" formControlName="infractorId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.nombres }}</option>
                     </select>
                 </div>
 
@@ -109,7 +109,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.testigo" for="field_testigo">Testigo</label>
                     <select class="form-control" id="field_testigo" name="testigo" formControlName="testigoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.id }}</option>
+                        <option [ngValue]="personaOption.id" *ngFor="let personaOption of personas; trackBy: trackById">{{ personaOption.nombres }}</option>
                     </select>
                 </div>
 
@@ -117,7 +117,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.patio" for="field_patio">Patio</label>
                     <select class="form-control" id="field_patio" name="patio" formControlName="patioId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="patioOption.id" *ngFor="let patioOption of patios; trackBy: trackById">{{ patioOption.id }}</option>
+                        <option [ngValue]="patioOption.id" *ngFor="let patioOption of patios; trackBy: trackById">{{ patioOption.nombre }}</option>
                     </select>
                 </div>
 
@@ -125,7 +125,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.grua" for="field_grua">Grua</label>
                     <select class="form-control" id="field_grua" name="grua" formControlName="gruaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="gruaOption.id" *ngFor="let gruaOption of gruas; trackBy: trackById">{{ gruaOption.id }}</option>
+                        <option [ngValue]="gruaOption.id" *ngFor="let gruaOption of gruas; trackBy: trackById">{{ gruaOption.codigo }}</option>
                     </select>
                 </div>
 
@@ -133,7 +133,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.comparendo.entidad" for="field_entidad">Entidad</label>
                     <select class="form-control" id="field_entidad" name="entidad" formControlName="entidadId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="entidadOption.id" *ngFor="let entidadOption of entidads; trackBy: trackById">{{ entidadOption.id }}</option>
+                        <option [ngValue]="entidadOption.id" *ngFor="let entidadOption of entidads; trackBy: trackById">{{ entidadOption.nombre }}</option>
                     </select>
                 </div>
             </div>

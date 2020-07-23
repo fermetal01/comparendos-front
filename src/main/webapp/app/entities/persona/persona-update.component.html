@@ -67,7 +67,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.ciudad" for="field_ciudad">Ciudad</label>
                     <select class="form-control" id="field_ciudad" name="ciudad" formControlName="ciudadId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.id }}</option>
+                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.nombre }}</option>
                     </select>
                 </div>
 
@@ -75,7 +75,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.genero" for="field_genero">Genero</label>
                     <select class="form-control" id="field_genero" name="genero" formControlName="generoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="generoOption.id" *ngFor="let generoOption of generos; trackBy: trackById">{{ generoOption.id }}</option>
+                        <option [ngValue]="generoOption.id" *ngFor="let generoOption of generos; trackBy: trackById">{{ generoOption.nombre }}</option>
                     </select>
                 </div>
 
@@ -83,7 +83,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.tipoSanguineo" for="field_tipoSanguineo">Tipo Sanguineo</label>
                     <select class="form-control" id="field_tipoSanguineo" name="tipoSanguineo" formControlName="tipoSanguineoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tipoSanguineoOption.id" *ngFor="let tipoSanguineoOption of tiposanguineos; trackBy: trackById">{{ tipoSanguineoOption.id }}</option>
+                        <option [ngValue]="tipoSanguineoOption.id" *ngFor="let tipoSanguineoOption of tiposanguineos; trackBy: trackById">{{ tipoSanguineoOption.tipo }}</option>
                     </select>
                 </div>
 
@@ -91,7 +91,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.tipoId" for="field_tipoId">Tipo Id</label>
                     <select class="form-control" id="field_tipoId" name="tipoId" formControlName="tipoIdId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tipoIdentificacionOption.id" *ngFor="let tipoIdentificacionOption of tipoidentificacions; trackBy: trackById">{{ tipoIdentificacionOption.id }}</option>
+                        <option [ngValue]="tipoIdentificacionOption.id" *ngFor="let tipoIdentificacionOption of tipoidentificacions; trackBy: trackById">{{ tipoIdentificacionOption.nombre }}</option>
                     </select>
                 </div>
 
@@ -99,7 +99,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.licencia" for="field_licencia">Licencia</label>
                     <select class="form-control" id="field_licencia" name="licencia" formControlName="licenciaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.id }}</option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.serial }}</option>
                     </select>
                 </div>
             </div>

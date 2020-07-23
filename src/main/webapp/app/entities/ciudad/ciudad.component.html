@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="comparendosApp.ciudad.home.title">Ciudads</span>
+        <span jhiTranslate="comparendosApp.ciudad.home.title">Ciudad</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ciudad" [routerLink]="['/ciudad/new']">
             <fa-icon icon="plus"></fa-icon>
@@ -22,21 +22,21 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="comparendosApp.ciudad.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="departamentoId"><span jhiTranslate="comparendosApp.ciudad.departamento">Departamento</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="departamentoId"><span jhiTranslate="comparendosApp.ciudad.departamento" for="link_departamento">Departamento</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let ciudad of ciudads ;trackBy: trackId">
-                    <td><a [routerLink]="['/ciudad', ciudad.id, 'view']">{{ ciudad.id }}</a></td>
                     <td>{{ ciudad.nombre }}</td>
                     <td>
-                        <div *ngIf="ciudad.departamentoId">
-                            <a [routerLink]="['/departamento', ciudad.departamentoId , 'view']" >{{ ciudad.departamentoId }}</a>
-                        </div>
+                        <div *ngIf="ciudad.departamentoId">                        
+                            <a id="link_departamento" [routerLink]="['/departamento', ciudad.departamentoId , 'view']" >{{ciudad.departamentoId}}</a>
+                        </div> 
                     </td>
+         
+                  
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

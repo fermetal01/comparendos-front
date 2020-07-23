@@ -54,7 +54,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.licencia.tipoLicencia" for="field_tipoLicencia">Tipo Licencia</label>
                     <select class="form-control" id="field_tipoLicencia" name="tipoLicencia" formControlName="tipoLicenciaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="tipoLicenciaOption.id" *ngFor="let tipoLicenciaOption of tipolicencias; trackBy: trackById">{{ tipoLicenciaOption.id }}</option>
+                        <option [ngValue]="tipoLicenciaOption.id" *ngFor="let tipoLicenciaOption of tipolicencias; trackBy: trackById">{{ tipoLicenciaOption.tipo }}</option>
                     </select>
                 </div>
 
@@ -62,7 +62,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.licencia.categoria" for="field_categoria">Categoria</label>
                     <select class="form-control" id="field_categoria" name="categoria" formControlName="categoriaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="categoriaOption.id" *ngFor="let categoriaOption of categorias; trackBy: trackById">{{ categoriaOption.id }}</option>
+                        <option [ngValue]="categoriaOption.id" *ngFor="let categoriaOption of categorias; trackBy: trackById">{{ categoriaOption.tipo }}</option>
                     </select>
                 </div>
 
@@ -70,7 +70,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.licencia.servicio" for="field_servicio">Servicio</label>
                     <select class="form-control" id="field_servicio" name="servicio" formControlName="servicioId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="servicioOption.id" *ngFor="let servicioOption of servicios; trackBy: trackById">{{ servicioOption.id }}</option>
+                        <option [ngValue]="servicioOption.id" *ngFor="let servicioOption of servicios; trackBy: trackById">{{ servicioOption.tipo }}</option>
                     </select>
                 </div>
 
@@ -78,7 +78,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.licencia.organismoTransito" for="field_organismoTransito">Organismo Transito</label>
                     <select class="form-control" id="field_organismoTransito" name="organismoTransito" formControlName="organismoTransitoId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="organismoTransitoOption.id" *ngFor="let organismoTransitoOption of organismotransitos; trackBy: trackById">{{ organismoTransitoOption.id }}</option>
+                        <option [ngValue]="organismoTransitoOption.id" *ngFor="let organismoTransitoOption of organismotransitos; trackBy: trackById">{{ organismoTransitoOption.nombre }}</option>
                     </select>
                 </div>
             </div>

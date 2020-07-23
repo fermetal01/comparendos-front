@@ -45,7 +45,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.entidad.ciudad" for="field_ciudad">Ciudad</label>
                     <select class="form-control" id="field_ciudad" name="ciudad" formControlName="ciudadId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.id }}</option>
+                        <option [ngValue]="ciudadOption.id" *ngFor="let ciudadOption of ciudads; trackBy: trackById">{{ ciudadOption.nombre }}</option>
                     </select>
                 </div>
             </div>

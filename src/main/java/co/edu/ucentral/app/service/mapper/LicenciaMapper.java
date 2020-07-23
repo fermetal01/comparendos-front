@@ -12,10 +12,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {RestriccionMapper.class, TipoLicenciaMapper.class, CategoriaMapper.class, ServicioMapper.class, OrganismoTransitoMapper.class})
 public interface LicenciaMapper extends EntityMapper<LicenciaDTO, Licencia> {
 
-    @Mapping(source = "tipoLicencia.id", target = "tipoLicenciaId")
-    @Mapping(source = "categoria.id", target = "categoriaId")
-    @Mapping(source = "servicio.id", target = "servicioId")
-    @Mapping(source = "organismoTransito.id", target = "organismoTransitoId")
+    @Mapping(source = "tipoLicencia.tipo", target = "tipoLicenciaId")
+    @Mapping(source = "categoria.tipo", target = "categoriaId")
+    @Mapping(source = "servicio.tipo", target = "servicioId")
+    @Mapping(source = "organismoTransito.nombre", target = "organismoTransitoId")
     LicenciaDTO toDto(Licencia licencia);
 
     @Mapping(target = "personas", ignore = true)

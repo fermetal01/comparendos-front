@@ -12,11 +12,11 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {CiudadMapper.class, GeneroMapper.class, TipoSanguineoMapper.class, TipoIdentificacionMapper.class, LicenciaMapper.class})
 public interface PersonaMapper extends EntityMapper<PersonaDTO, Persona> {
 
-    @Mapping(source = "ciudad.id", target = "ciudadId")
-    @Mapping(source = "genero.id", target = "generoId")
-    @Mapping(source = "tipoSanguineo.id", target = "tipoSanguineoId")
-    @Mapping(source = "tipoId.id", target = "tipoIdId")
-    @Mapping(source = "licencia.id", target = "licenciaId")
+    @Mapping(source = "ciudad.nombre", target = "ciudadId")
+    @Mapping(source = "genero.nombre", target = "generoId")
+    @Mapping(source = "tipoSanguineo.tipo", target = "tipoSanguineoId")
+    @Mapping(source = "tipoId.nombre", target = "tipoIdId")
+    @Mapping(source = "licencia.serial", target = "licenciaId")
     PersonaDTO toDto(Persona persona);
 
     @Mapping(target = "usuarios", ignore = true)

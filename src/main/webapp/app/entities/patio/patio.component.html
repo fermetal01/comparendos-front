@@ -22,7 +22,6 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="comparendosApp.patio.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="numero"><span jhiTranslate="comparendosApp.patio.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="direccion"><span jhiTranslate="comparendosApp.patio.direccion">Direccion</span> <fa-icon icon="sort"></fa-icon></th>
@@ -31,7 +30,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let patio of patios ;trackBy: trackId">
-                    <td><a [routerLink]="['/patio', patio.id, 'view']">{{ patio.id }}</a></td>
                     <td>{{ patio.nombre }}</td>
                     <td>{{ patio.numero }}</td>
                     <td>{{ patio.direccion }}</td>
