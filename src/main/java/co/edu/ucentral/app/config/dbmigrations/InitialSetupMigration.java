@@ -4,8 +4,8 @@ import co.edu.ucentral.app.domain.Authority;
 import co.edu.ucentral.app.domain.User;
 import co.edu.ucentral.app.security.AuthoritiesConstants;
 
-import com.github.mongobee.changeset.ChangeLog;
-import com.github.mongobee.changeset.ChangeSet;
+//import com.github.mongobee.changeset.ChangeLog;
+//import com.github.mongobee.changeset.ChangeSet;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.time.Instant;
@@ -13,10 +13,10 @@ import java.time.Instant;
 /**
  * Creates the initial database setup.
  */
-@ChangeLog(order = "001")
+//@ChangeLog(order = "001")
 public class InitialSetupMigration {
 
-    @ChangeSet(order = "01", author = "initiator", id = "01-addAuthorities")
+    //@ChangeSet(order = "01", author = "initiator", id = "01-addAuthorities")
     public void addAuthorities(MongoTemplate mongoTemplate) {
         Authority adminAuthority = new Authority();
         adminAuthority.setName(AuthoritiesConstants.ADMIN);
@@ -26,7 +26,7 @@ public class InitialSetupMigration {
         mongoTemplate.save(userAuthority);
     }
 
-    @ChangeSet(order = "02", author = "initiator", id = "02-addUsers")
+    //@ChangeSet(order = "02", author = "initiator", id = "02-addUsers")
     public void addUsers(MongoTemplate mongoTemplate) {
         Authority adminAuthority = new Authority();
         adminAuthority.setName(AuthoritiesConstants.ADMIN);

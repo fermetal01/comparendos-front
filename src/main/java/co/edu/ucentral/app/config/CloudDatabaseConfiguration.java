@@ -1,6 +1,6 @@
 package co.edu.ucentral.app.config;
 
-import com.github.mongobee.Mongobee;
+//import com.github.mongobee.Mongobee;
 
 import io.github.jhipster.config.JHipsterConstants;
 import io.github.jhipster.domain.util.JSR310DateConverters.*;
@@ -56,7 +56,7 @@ public class CloudDatabaseConfiguration extends AbstractCloudConfig {
         return new MongoCustomConversions(converterList);
     }
 
-    @Bean
+    /*@Bean
     public Mongobee mongobee(MongoDbFactory mongoDbFactory, MongoTemplate mongoTemplate, Cloud cloud) {
         log.debug("Configuring Cloud Mongobee");
         List<ServiceInfo> matchingServiceInfos = cloud.getServiceInfos(MongoDbFactory.class);
@@ -73,5 +73,5 @@ public class CloudDatabaseConfiguration extends AbstractCloudConfig {
         mongobee.setChangeLogsScanPackage("co.edu.ucentral.app.config.dbmigrations");
         mongobee.setEnabled(true);
         return mongobee;
-    }
+    }*/
 }

@@ -33,7 +33,7 @@ spring:
       enabled: false
   data:
     mongodb:
-      uri: mongodb://localhost:27017
+      uri: mongodb+srv://cluster-mongo-user:<password>@comparendoscluster.xe2cp.mongodb.net/<dbname>?retryWrites=true&w=majority
       database: comparendos
   mail:
     host: localhost

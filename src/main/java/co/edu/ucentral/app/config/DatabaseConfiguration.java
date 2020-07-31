@@ -1,7 +1,7 @@
 package co.edu.ucentral.app.config;
 
 import io.github.jhipster.config.JHipsterConstants;
-import com.github.mongobee.Mongobee;
+//import com.github.mongobee.Mongobee;
 import com.mongodb.MongoClient;
 import io.github.jhipster.domain.util.JSR310DateConverters.DateToZonedDateTimeConverter;
 import io.github.jhipster.domain.util.JSR310DateConverters.ZonedDateTimeToDateConverter;
@@ -51,7 +51,7 @@ public class DatabaseConfiguration {
         return new MongoCustomConversions(converters);
     }
 
-    @Bean
+    /*@Bean
     public Mongobee mongobee(MongoClient mongoClient, MongoTemplate mongoTemplate, MongoProperties mongoProperties) {
         log.debug("Configuring Mongobee");
         Mongobee mongobee = new Mongobee(mongoClient);
@@ -61,4 +61,5 @@ public class DatabaseConfiguration {
         mongobee.setChangeLogsScanPackage("co.edu.ucentral.app.config.dbmigrations");
         mongobee.setEnabled(true);
         return mongobee;
-    }}
+    }}*/
+}

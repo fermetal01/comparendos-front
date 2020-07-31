@@ -37,7 +37,7 @@ spring:
       indent-output: true
   data:
     mongodb:
-      uri: mongodb://localhost:27017
+      uri: mongodb+srv://cluster-mongo-user:ucentral@comparendoscluster.xe2cp.mongodb.net/comparendos?retryWrites=true&w=majority
       database: comparendos
   mail:
     host: localhost

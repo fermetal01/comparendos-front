@@ -130,10 +130,10 @@
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.mongobee</groupId>
             <artifactId>mongobee</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
