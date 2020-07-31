@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label jhiTranslate="comparendosApp.licencia.restriccion" for="field_restriccions">Restriccion</label>
                     <select class="form-control" id="field_restriccions" multiple name="restriccions" formControlName="restriccions">
-                        <option [ngValue]="getSelected(editForm.get('restriccions')!.value, restriccionOption)" *ngFor="let restriccionOption of restriccions; trackBy: trackById">{{ restriccionOption.id }}</option>
+                        <option [ngValue]="getSelected(editForm.get('restriccions')!.value, restriccionOption)" *ngFor="let restriccionOption of restriccions; trackBy: trackById">{{ restriccionOption.tipo }}</option>
                     </select>
                 </div>
                 <div *ngIf="editForm.get('restriccions')!.invalid && (editForm.get('restriccions')!.dirty || editForm.get('restriccions')!.touched)">

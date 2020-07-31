@@ -31,6 +31,7 @@
   },
   "defaultProject": "comparendos",
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "0d3195b2-b281-47e9-96b1-cae526ad33c5"
   }
 }

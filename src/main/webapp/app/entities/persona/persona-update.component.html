@@ -99,7 +99,7 @@
                     <label class="form-control-label" jhiTranslate="comparendosApp.persona.licencia" for="field_licencia">Licencia</label>
                     <select class="form-control" id="field_licencia" name="licencia" formControlName="licenciaId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.serial }}</option>
+                        <option [ngValue]="licenciaOption.id" *ngFor="let licenciaOption of licencias; trackBy: trackById">{{ licenciaOption.tipoLicenciaId }}</option>
                     </select>
                 </div>
             </div>

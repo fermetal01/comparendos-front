@@ -42,7 +42,9 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     @Override
     public Page<DepartamentoDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Departamentos");
-        return departamentoRepository.findAll(pageable)
+        Pageable pageable1 = Pageable.unpaged();
+
+        return departamentoRepository.findAll(pageable1)
             .map(departamentoMapper::toDto);
     }
 
